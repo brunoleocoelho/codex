@@ -27,4 +27,5 @@ export class Project {
     description: string;
     skills: Array<string>;
     skill: string;
+    level: number;
 }

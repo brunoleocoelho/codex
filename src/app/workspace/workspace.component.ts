@@ -12,6 +12,7 @@ export class WorkspaceComponent implements OnInit {
 
     projects = new Array<Project>();
     project = new Project();
+    showForm = false;
 
     constructor(private rout: Router,
                 private userService: UserService) {
@@ -29,6 +30,9 @@ export class WorkspaceComponent implements OnInit {
     }
 
     addMyProject() {
-
+        this.projects.push(this.project);
+        this.project = new Project();
+        console.log(this.projects);
+        this.showForm = false;
     }
 }
