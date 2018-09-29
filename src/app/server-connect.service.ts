@@ -11,7 +11,7 @@ export class ServerConnectService {
 
     constructor(public http: HttpClient) { }
 
-    /** Efetua o login do usuário */
+    /** Efetua o login do usuário via POST */
     loginToServer(usr, pwd) {
         let url = this.host + '/login.php'; //?usuario='+ usr + "&senha="+pwd;
         console.log("Usr", usr);
@@ -22,5 +22,11 @@ export class ServerConnectService {
         console.log("HttpHeaders: ", params);
     
         return this.http.post(url, {params});
+    }
+
+    /** Busca os projetos na base*/
+    getProjects() {
+        let url = this.host + '/projetoslista.php'; //?usuario='+ usr + "&senha="+pwd;    
+        return this.http.get(url);
     }
 }
