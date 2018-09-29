@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class WorkspaceComponent implements OnInit {
 
+    incluindo: boolean = false;
+    // grpList: [];
+
     constructor(private rout: Router) {
     }
     
