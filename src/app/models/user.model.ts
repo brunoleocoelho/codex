@@ -4,6 +4,9 @@ export class User {
     passwordComfirm: string;
     id: number;
     skills = new Array<Skills>();
+    projects = new Array<Project>();
+    otherProjects = new Array<Project>();
+
     constructor(email?: string,
                 password?: string,
                 id?: number) {
@@ -17,4 +20,11 @@ export class User {
 export class Skills {
     name: string;
     id: number;
+}
+
+export class Project {
+    name: string;
+    description: string;
+    skills: Array<string>;
+    skill: string;
 }
