@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServerConnectService } from './server-connect.service';
 import { WorkspaceComponent } from './workspace/workspace.component';
+import { UserService } from './services/user-service';
 
 /** Rotas da aplicação */
 const routes: Routes = [
@@ -58,7 +59,8 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [
-      ServerConnectService
+      ServerConnectService,
+      UserService
   ],
   bootstrap: [AppComponent]
 })
