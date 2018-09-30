@@ -19,14 +19,14 @@ export class LoginComponent implements OnInit {
     strg;
 
     constructor(private http: HttpClientModule,
-                private serv: ServerConnectService,
-                private rout: Router,
-                private userServ: UserService
-                ) {
+        private serv: ServerConnectService,
+        private rout: Router,
+        private userServ: UserService
+    ) {
 
         const loginStrg = window.localStorage.getItem('user');
         if (loginStrg) {
-            if (loginStrg.length > 0 ) {
+            if (loginStrg.length > 0) {
                 this.rout.navigate(['workspace']);
             }
         } else {
@@ -39,37 +39,25 @@ export class LoginComponent implements OnInit {
 
     doLogin() {
         const user = JSON.parse(window.localStorage.getItem('user'));
-<<<<<<< HEAD
-<<<<<<< HEAD
         //Sendo teste redireciona sempre para workspace
         if (user != null) {
-=======
-         if (user != null) {
->>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
-=======
-         if (user != null) {
->>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
+
             if (user.email === this.usuario && this.senha === user.password) {
                 this.rout.navigate(['workspace']);
             } else {
                 this.rout.navigate(['login']);
             }
-        }else{
-<<<<<<< HEAD
-<<<<<<< HEAD
-            var ok = this.userServ.verifyUser( new User(this.usuario, this.senha) );
+        } else {
+
+            var ok = this.userServ.verifyUser(new User(this.usuario, this.senha));
             if (ok != null) {
                 this.rout.navigate(['workspace']);
             }
-            else{
+            else {
                 alert("Usuario/senha incorretos!");
             }
-=======
             this.rout.navigate(['workspace']);
->>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
-=======
-            this.rout.navigate(['workspace']);
->>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
+
         }
         // this.serv.loginToServer(this.usuario, this.senha).subscribe(
         //     ok => {
