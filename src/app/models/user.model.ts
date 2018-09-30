@@ -20,6 +20,8 @@ export class User {
 export class Skills {
     name: string;
     id: number;
+    level: number;
+    details: string;
 }
 
 export class Project {

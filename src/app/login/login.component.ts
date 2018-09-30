@@ -16,47 +16,59 @@ export class LoginComponent implements OnInit {
     usuario: string;
     senha: string;
     dados: any;
-    strg;
+    userStrg: User;
 
     constructor(private http: HttpClientModule,
         private serv: ServerConnectService,
         private rout: Router,
         private userServ: UserService
     ) {
-
-        const loginStrg = window.localStorage.getItem('user');
-        if (loginStrg) {
-            if (loginStrg.length > 0) {
-                this.rout.navigate(['workspace']);
-            }
-        } else {
-            window.alert('cadastre-se');
-        }
+        this.usuario = '';
+        this.senha = '';
+        this.userStrg = JSON.parse(window.localStorage.getItem('user'));
+        this.doLogin();
+        // if (this.userStrg != null) {
+        //     if (this.userStrg.length > 0) {
+        //         this.rout.navigate(['workspace']);
+        //     }
+        // } else {
+        //     window.alert('cadastre-se');
+        // }
     }
 
     ngOnInit() {
     }
 
     doLogin() {
-        const user = JSON.parse(window.localStorage.getItem('user'));
+        //this.userStrg = JSON.parse(window.localStorage.getItem('user'));
         //Sendo teste redireciona sempre para workspace
-        if (user != null) {
+        if (this.userStrg != null) {
 
-            if (user.email === this.usuario && this.senha === user.password) {
+            if (this.userStrg.email === this.usuario 
+                && this.senha === this.userStrg.password) {
                 this.rout.navigate(['workspace']);
-            } else {
-                this.rout.navigate(['login']);
-            }
+            } 
+            // else {
+            //     window.alert('Cadastre-se!');
+            //     this.rout.navigate(['cadastro']);
+            // }
+
         } else {
 
-            var ok = this.userServ.verifyUser(new User(this.usuario, this.senha));
-            if (ok != null) {
-                this.rout.navigate(['workspace']);
+            if (this.usuario.length != 0 && this.senha.length != 0) {
+                let usr = new User(); //this.usuario, this.senha
+                usr.email = this.usuario;
+                usr.password = this.senha;
+                var okusr = this.userServ.verifyUser(usr);
+
+                if (okusr != null) {
+                    window.localStorage.setItem('user', JSON.stringify(okusr));
+                    this.rout.navigate(['workspace']);
+                }
+                else {
+                    alert("Usuario/senha incorretos!");
+                }
             }
-            else {
-                alert("Usuario/senha incorretos!");
-            }
-            this.rout.navigate(['workspace']);
 
         }
         // this.serv.loginToServer(this.usuario, this.senha).subscribe(

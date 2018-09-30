@@ -78,7 +78,7 @@
                                 <!-- Lista de projetos existentes -->
                                 <div class="p-4">
                                     <div class="p3">
-                                        <h3>Lista de Projetos Ativos</h3>
+                                        <h3>Seus Projetos Ativos</h3>
                                     </div>
 
                                     <!-- <div *ngFor="let item of projects; index as i">
@@ -91,6 +91,7 @@
                                             <small>{{item.description}}</small>
                                         </div>
                                     </div> -->
+<<<<<<< HEAD
                                     <a href="" *ngFor="let item of projects; index as i" [ngClass]="{active: i==0}"
                                     class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="d-flex w-100 justify-content-between">
@@ -104,6 +105,17 @@
                                                 Informaçoes do projetoSS
                                             </button>
                                         </a>
+=======
+                                    <a href="" *ngFor="let item of usrStrg.projects; index as i" [ngClass]="{active: i==0}"
+                                        class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">{{item.name}}</h5>
+                                            <small>{{item.skills}}</small>
+                                        </div>
+                                        <p class="mb-1">{{item.skill}}</p>
+                                        <small>{{item.description}}</small>
+                                    </a>
+>>>>>>> 57442d0b3530674ae8f4fe4225a2b03a86789c39
                                 </div>
                             </div>
                         </div>
@@ -114,60 +126,63 @@
 
         <!-- CONTEUDO TAB PROFISSIONAL -->
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+            <!-- Lista de competencias e habilidade ao profissional -->
+            <div class="p-4">
+                <div class="p3">
+                    <h4>Suas Competências</h4>
+                </div>
+                <h3 class="m-2">
+                    <span *ngFor="let item of usrStrg.skills" class="badge badge-primary p-2 m-2">{{item.name}}</span>
+                </h3>
+            </div>
+
             <!-- botão Incluir Projeto (à diretita)-->
             <button class="btn btn-success float-right" *ngIf="!showFormPro" (click)="showFormPro= !showFormPro">Nova
-                Especialização</button>
+                Capacidade</button>
 
-            <form class="mt-3">
+            <div class="bg-light card border-dark mb-4" *ngIf="showFormPro">
+                <h4 class="p-4">Incluir Capacidade</h4>
 
-                <div class="bg-light card border-dark mb-4" *ngIf="showFormPro">
-
-                    <h4 class="p-4">Incluir especialização</h4>
-
-                    <!-- formulário -->
-                    <div class="row p-3">
-                        <div class="form-group col-md-6">
-                            <h6 class="text-primary">Nivel:</h6>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>0 - Nenhum</option>
-                                <option>1 - Baixo</option>
-                                <option>2 - Médiio</option>
-                                <option>3 - Alto</option>
-                                <option>4 - Expert</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <h6 class="text-primary">Nivel:</h6>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>0 - Nenhum</option>
-                                <option>1 - Baixo</option>
-                                <option>2 - Médiio</option>
-                                <option>3 - Alto</option>
-                                <option>4 - Expert</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <h6 class="text-primary">Detalhes dó projeto :</h6>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <div class="col-12">
-                            <!-- Botão Salvar inclusão de projeto-->
-                            <button type="submit" class="btn btn-primary float-right mr-3 mt-3">Adicionar
-                            </button>
-                            <!-- botão de cancelar inclusão de projeto -->
-                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="showFormPro= !showFormPro">Cancelar</button>
-                        </div>
-
+                <div class="row p-3">
+                    <!-- Capacidade / Habilidade -->
+                    <div class="form-group col-md-6">
+                        <h6 class="text-primary">Capacidade/Habilidade:</h6>
+                        <input type="text" [(ngModel)]="skill.name">
+                    </div>
+                    <!-- Nivel de conhecimento -->
+                    <div class="form-group col-md-6">
+                        <h6 class="text-primary">Nivel de conhecimento:</h6>
+                        <select [(ngModel)]="skill.level" class="form-control" id="exampleFormControlSelect1">
+                            <option value="0">0 - Nenhum</option>
+                            <option value="1">1 - Baixo</option>
+                            <option value="2">2 - Médiio</option>
+                            <option value="3">3 - Alto</option>
+                            <option value="4">4 - Expert</option>
+                        </select>
+                    </div>
+                    <!-- Detalhes da capacidade / habilidade -->
+                    <div class="form-group col-md-12">
+                        <h6 class="text-primary">Detalhes da habilidade:</h6>
+                        <textarea [(ngModel)]="skill.details" class="form-control" id="exampleFormControlTextarea1"
+                            rows="3"></textarea>
                     </div>
 
-                    
+                    <div class="col-12">
+                        <!-- Botão Salvar inclusão de projeto-->
+                        <button type="submit" class="btn btn-primary float-right mr-3 mt-3" (click)="newSkill()">Adicionar
+                        </button>
+                        <!-- botão de cancelar inclusão de projeto -->
+                        <button class="btn btn-danger float-right mr-3 mt-3" (click)="showFormPro= !showFormPro">Cancelar</button>
+                    </div>
                 </div>
-            </form>
+
+            </div>
+
             <!-- Lista de Projetos associados ao profissional -->
             <div class="p-4">
                 <div class="p3">
-                    <h3>Projetos que voçê trabalha</h3>
+                    <h3>Projetos que você participa</h3>
                 </div>
                 <div class="list-group">
                     <div *ngFor="let item of projects">
