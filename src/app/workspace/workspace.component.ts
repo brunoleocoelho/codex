@@ -13,7 +13,6 @@ import { Project } from '../models/user.model';
 export class WorkspaceComponent implements OnInit {
 
     data: any;
-    novoProj: NovoProjeto;
     projects = new Array<Project>();
     project = new Project();
 
@@ -59,12 +58,4 @@ export class WorkspaceComponent implements OnInit {
     // loadMyProjectList() {
     // }
 
-}
-
-/** Classe que instancia um novo projeto */
-class NovoProjeto {
-    titulo;
-    segmento;
-    competencias;
-    detalhes;
 }
