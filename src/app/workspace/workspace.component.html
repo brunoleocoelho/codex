@@ -1,10 +1,10 @@
 <!-- INICIO WORKSPACE -->
 <div class="container mt-5">
 
-    <ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
         <!-- TAB EMPREENDEDOR -->
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#empreendedor" role="tab" aria-controls="home"
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#empreendedor" role="tab" aria-controls="empreendedor"
                 aria-selected="true">
                 <h4>Empreendedor</h4>
             </a>
@@ -26,7 +26,6 @@
         <!-- CONTEUDO TAB EMPREENDEDOR -->
         <div class="tab-pane fade show active" id="empreendedor" role="tabpanel" aria-labelledby="home-tab">
             <div class="row">
-
                 <div class="col-12">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
@@ -81,41 +80,30 @@
                                     <div class="p3">
                                         <h3>Lista de Projetos Ativos</h3>
                                     </div>
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small>3 days ago</small>
+
+                                    <div *ngFor="let item of projects" class="accordion" id="accordionExample">
+                                        <div class="card">
+                                            <div data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne" class="list-group-item list-group-item-action flex-column align-items-start active">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">List group item heading</h5>
+                                                    <small>3 days ago</small>
+                                                </div>
+                                                <p class="mb-1">Donec id elit non mi porta gravida at eget
+                                                    metus.
+                                                    Maecenas sed diam eget risus varius blandit.
+                                                </p>
+                                                <small>Donec id elit non mi porta.</small>
                                             </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                                sed
-                                                diam
-                                                eget risus varius blandit.</p>
-                                            <small>Donec id elit non mi porta.</small>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="text-muted">3 days ago</small>
+                                        </div>
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body">
+
                                             </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                                sed
-                                                diam
-                                                eget risus varius blandit.</p>
-                                            <small class="text-muted">Donec id elit non mi porta.</small>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="text-muted">3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                                sed
-                                                diam
-                                                eget risus varius blandit.</p>
-                                            <small class="text-muted">Donec id elit non mi porta.</small>
-                                        </a>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -123,7 +111,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- CONTEUDO TAB PROFISSIONAL -->
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -217,5 +204,5 @@
             </form>
 
         </div>
-
     </div>
+</div>
