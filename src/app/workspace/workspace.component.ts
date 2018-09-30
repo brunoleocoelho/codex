@@ -33,7 +33,7 @@ export class WorkspaceComponent implements OnInit {
             this.rout.navigate(['login']);
         }
         console.log(loginStrg);
-        //this.getProjects();
+        this.getProjects();
     }
 
     /** busca os projetos já criados atraves do service */
@@ -51,12 +51,13 @@ export class WorkspaceComponent implements OnInit {
 
     /** cria um novo projeto para o empreendedor */
     addMyProject() {
-        this.projects.push(this.project);
+        // this.projects.push(this.project);
         this.projService.addProjeto(this.project);
         alert("Projeto inserido com sucesso!");
         console.log(this.projects);
         this.project = new Project();
-        this.showForm = false;
+        this.showFormEmp = false;
+        this.showFormPro = false;
     }
 
     // loadMyProjectList() {
