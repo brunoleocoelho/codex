@@ -33,7 +33,7 @@ export class WorkspaceComponent implements OnInit {
             this.rout.navigate(['login']);
         }
         console.log(loginStrg);
-        this.getProjects();
+        //this.getProjects();
     }
 
     /** busca os projetos já criados atraves do service */

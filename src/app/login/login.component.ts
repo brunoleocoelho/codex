@@ -40,8 +40,12 @@ export class LoginComponent implements OnInit {
     doLogin() {
         const user = JSON.parse(window.localStorage.getItem('user'));
 <<<<<<< HEAD
+<<<<<<< HEAD
         //Sendo teste redireciona sempre para workspace
         if (user != null) {
+=======
+         if (user != null) {
+>>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
 =======
          if (user != null) {
 >>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
@@ -52,6 +56,7 @@ export class LoginComponent implements OnInit {
             }
         }else{
 <<<<<<< HEAD
+<<<<<<< HEAD
             var ok = this.userServ.verifyUser( new User(this.usuario, this.senha) );
             if (ok != null) {
                 this.rout.navigate(['workspace']);
@@ -59,6 +64,9 @@ export class LoginComponent implements OnInit {
             else{
                 alert("Usuario/senha incorretos!");
             }
+=======
+            this.rout.navigate(['workspace']);
+>>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
 =======
             this.rout.navigate(['workspace']);
 >>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
