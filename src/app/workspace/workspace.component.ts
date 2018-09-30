@@ -20,11 +20,10 @@ export class WorkspaceComponent implements OnInit {
 
     ngOnInit() {
         const loginStrg = window.localStorage.getItem('user');
-        if (loginStrg) {
-            if (loginStrg.length === 0) {
+        if (loginStrg === null || loginStrg.length === 0) {
                 this.rout.navigate(['login']);
             }
-        }
+        console.log(loginStrg);
     }
     loadMyProjectList() {
     }

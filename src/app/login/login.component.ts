@@ -35,9 +35,8 @@ export class LoginComponent implements OnInit {
     }
 
     doLogin() {
-        const email = window.localStorage.getItem('user').email;
-        const password = window.localStorage.getItem('user').password;
-        if (email === this.usuario && this.senha === password) {
+        const user = JSON.parse(window.localStorage.getItem('user'));
+        if (user.email === this.usuario && this.senha === user.password) {
             this.rout.navigate(['workspace']);
         } else {
             this.rout.navigate(['login']);
