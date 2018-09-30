@@ -41,63 +41,30 @@
                                     <h4 class="p-4">Incluir Novo Projeto</h4>
                                     <!-- formulário -->
                                     <div class="row p-3">
-<<<<<<< HEAD
 
                                         <!-- Titulo do Novo Projeto -->
                                         <div class="form-group col-md-6">
                                             <h6 class="text-primary">Titulo do Projeto:</h6>
-                                            <select  class="form-control" id="exampleFormControlSelect1" >
-                                                <option *ngFor="let proj of projetos" [ngValue]="novoProj.titulo">{{ proj.titulo }}</option>
-                                                <!-- <option>Página Web</option>
-=======
-                                        
+                                            <input type="text" [(ngModel)]="project.name">
+                                        </div>
+
                                         <div class="form-group col-md-6">
-                                          <h6 class="text-primary">Especialidade:</h6>
+                                            <h6 class="text-primary">Especialidade:</h6>
                                             <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="project.skill">
                                                 <option>Desenvolver App Mobile</option>
                                                 <option>Página Web</option>
->>>>>>> 6a7d4d603a9f7c3eec5bc0764537246e6dd22787
                                                 <option>Banco de Dados</option>
-                                                <option>Inicio de Startup</option> -->
-                                            </select>
-                                        </div>
-<<<<<<< HEAD
-
-                                        <!-- Segmento do Novo projeto -->
-                                        <div class="form-group col-md-6">
-                                            <h6 class="text-primary">Segmento:</h6>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option *ngFor="let proj of projetos" [ngValue]="novoProj.segmento">{{ proj.segmento }}</option>
-                                                <!-- <option>1 - Baixo</option>
-                                                <option>2 - Médiio</option>
-                                                <option>3 - Alto</option>
-                                                <option>4 - Expert</option> -->
-=======
-            
-                                        <div class="form-group col-md-6">
-                                          <h6 class="text-primary">Nivel:</h6>
-                                            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="project.level">
-                                                <option value="0">0 - Nenhum</option>
-                                                <option value="1">1 - Baixo</option>
-                                                <option value="2">2 - Médio</option>
-                                                <option value="3">3 - Alto</option>
-                                                <option value="4">4 - Expert</option>
->>>>>>> 6a7d4d603a9f7c3eec5bc0764537246e6dd22787
+                                                <option>Inicio de Startup</option>
                                             </select>
                                         </div>
 
                                         <!-- Detalhes do Movo Projeto -->
                                         <div class="form-group col-md-12">
-<<<<<<< HEAD
-                                            <h6 class="text-primary">Detalhes dó projeto:</h6>
-                                            <textarea class="form-control" [(ngModel)]="novoProj.detalhes" id="exampleFormControlTextarea1" rows="3" ></textarea>
+                                            <h6 class="text-primary">Detalhes do projeto:</h6>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                                [(ngModel)]="project.description"></textarea>
                                         </div>
 
-=======
-                                          <h6 class="text-primary">Detalhes do projeto:</h6>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="project.description"></textarea>
-  </div>
->>>>>>> 6a7d4d603a9f7c3eec5bc0764537246e6dd22787
                                         <div class="col-12">
                                             <!-- Botão Salvar inclusão de projeto-->
                                             <button type="submit" class="btn btn-primary float-right mr-3 mt-3" (click)="addMyProject()">Salvar
@@ -152,8 +119,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -162,13 +127,13 @@
 
         <!-- CONTEUDO TAB PROFISSIONAL -->
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-<<<<<<< HEAD
             <!-- botão Incluir Projeto (à diretita)-->
-            <button class="btn btn-success float-right" *ngIf="!incluindo" (click)="incluindo= !incluindo">Nova Especialização</button>
+            <button class="btn btn-success float-right" *ngIf="!incluindo" (click)="incluindo= !incluindo">Nova
+                Especialização</button>
 
             <form class="mt-3">
 
-                <div class="bg-light card border-dark mb-4" *ngIf="incluindo">
+                <div class="bg-light card border-dark mb-4" *ngIf="showForm">
 
                     <h4 class="p-4">Incluir especialização</h4>
 
@@ -204,100 +169,53 @@
                             <button type="submit" class="btn btn-primary float-right mr-3 mt-3">Adicionar
                             </button>
                             <!-- botão de cancelar inclusão de projeto -->
-                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="incluindo= !incluindo">Cancelar</button>
+                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="showForm= !showForm">Cancelar</button>
                         </div>
+                        >>>>>>> 6a7d4d603a9f7c3eec5bc0764537246e6dd22787
 
-                    </div>
-                </div>
-=======
-          
-                                 
-                          <form class="mt-3">
-
-                                <div class="bg-light card border-dark mb-4" *ngIf="showForm">
-
-                                    <h4 class="p-4">Incluir especialização</h4>
-
-                                    <!-- formulário -->
-                                    <div class="row p-3">
-                                         <div class="form-group col-md-6">
-                                          <h6 class="text-primary">Nivel:</h6>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>0 - Nenhum</option>
-                                                <option>1 - Baixo</option>
-                                                <option>2 - Médiio</option>
-                                                <option>3 - Alto</option>
-                                                <option>4 - Expert</option>
-                                            </select>
-                                        </div>
-
-                                         <div class="form-group col-md-6">
-                                          <h6 class="text-primary">Nivel:</h6>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>0 - Nenhum</option>
-                                                <option>1 - Baixo</option>
-                                                <option>2 - Médiio</option>
-                                                <option>3 - Alto</option>
-                                                <option>4 - Expert</option>
-                                            </select>
-                                        </div>
-                                         <div class="form-group col-md-12">
-                                          <h6 class="text-primary">Detalhes dó projeto :</h6>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-                                        <div class="col-12">
-                                            <!-- Botão Salvar inclusão de projeto-->
-                                            <button type="submit" class="btn btn-primary float-right mr-3 mt-3">Adicionar
-                                                </button>
-                                            <!-- botão de cancelar inclusão de projeto -->
-                                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="showForm= !showForm">Cancelar</button>
-                                        </div>
->>>>>>> 6a7d4d603a9f7c3eec5bc0764537246e6dd22787
-
-                <div class="p-4">
-                    <div class="p3">
-                        <h3>Projetos que vc trabalha</h3>
-                    </div>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Especializaçao</h5>
-                                <small>Descriçao</small>
+                        <div class="p-4">
+                            <div class="p3">
+                                <h3>Projetos que vc trabalha</h3>
                             </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                sed
-                                diam
-                                eget risus varius blandit.</p>
-                            <small>Donec id elit non mi porta.</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">List group item heading</h5>
-                                <small class="text-muted">3 days ago</small>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Especializaçao</h5>
+                                        <small>Descriçao</small>
+                                    </div>
+                                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
+                                        sed
+                                        diam
+                                        eget risus varius blandit.</p>
+                                    <small>Donec id elit non mi porta.</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">List group item heading</h5>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
+                                        sed
+                                        diam
+                                        eget risus varius blandit.</p>
+                                    <small class="text-muted">Donec id elit non mi porta.</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">List group item heading</h5>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
+                                        sed
+                                        diam
+                                        eget risus varius blandit.</p>
+                                    <small class="text-muted">Donec id elit non mi porta.</small>
+                                </a>
                             </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                sed
-                                diam
-                                eget risus varius blandit.</p>
-                            <small class="text-muted">Donec id elit non mi porta.</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">List group item heading</h5>
-                                <small class="text-muted">3 days ago</small>
-                            </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                sed
-                                diam
-                                eget risus varius blandit.</p>
-                            <small class="text-muted">Donec id elit non mi porta.</small>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </form>
-
-
-
 
         </div>
 
