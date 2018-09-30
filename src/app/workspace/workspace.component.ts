@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { ServerConnectService } from '../server-connect.service';
+=======
+import { Project } from '../models/user.model';
+import { UserService } from '../services/user-service';
+>>>>>>> 6a7d4d603a9f7c3eec5bc0764537246e6dd22787
 
 @Component({
     selector: 'app-workspace',
@@ -9,6 +14,7 @@ import { ServerConnectService } from '../server-connect.service';
 })
 export class WorkspaceComponent implements OnInit {
 
+<<<<<<< HEAD
     incluindo: boolean = false;
     data: any;
     projetos = [];
@@ -46,6 +52,31 @@ export class WorkspaceComponent implements OnInit {
             },
             err => { console.log("Erro.getProjects:", err)}
         );
+=======
+    projects = new Array<Project>();
+    project = new Project();
+    showForm = false;
+
+    constructor(private rout: Router,
+                private userService: UserService) {
+    }
+
+    ngOnInit() {
+        const loginStrg = window.localStorage.getItem('user');
+        if (loginStrg === null || loginStrg.length === 0) {
+                this.rout.navigate(['login']);
+            }
+        console.log(loginStrg);
+    }
+    loadMyProjectList() {
+    }
+
+    addMyProject() {
+        this.projects.push(this.project);
+        this.project = new Project();
+        console.log(this.projects);
+        this.showForm = false;
+>>>>>>> 6a7d4d603a9f7c3eec5bc0764537246e6dd22787
     }
 }
 
