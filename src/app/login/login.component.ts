@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServerConnectService } from '../server-connect.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user-service';
+import { User } from '../models/user.model';
 
 @Component({
     selector: 'app-login',
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
 
     constructor(private http: HttpClientModule,
                 private serv: ServerConnectService,
-                private rout: Router
+                private rout: Router,
+                private userServ: UserService
                 ) {
 
         const loginStrg = window.localStorage.getItem('user');
@@ -36,10 +39,29 @@ export class LoginComponent implements OnInit {
 
     doLogin() {
         const user = JSON.parse(window.localStorage.getItem('user'));
-        if (user.email === this.usuario && this.senha === user.password) {
+<<<<<<< HEAD
+        //Sendo teste redireciona sempre para workspace
+        if (user != null) {
+=======
+         if (user != null) {
+>>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
+            if (user.email === this.usuario && this.senha === user.password) {
+                this.rout.navigate(['workspace']);
+            } else {
+                this.rout.navigate(['login']);
+            }
+        }else{
+<<<<<<< HEAD
+            var ok = this.userServ.verifyUser( new User(this.usuario, this.senha) );
+            if (ok != null) {
+                this.rout.navigate(['workspace']);
+            }
+            else{
+                alert("Usuario/senha incorretos!");
+            }
+=======
             this.rout.navigate(['workspace']);
-        } else {
-            this.rout.navigate(['login']);
+>>>>>>> 45a5b50cb18fbc06aeba713e95d7e7e8cc0a2c7b
         }
         // this.serv.loginToServer(this.usuario, this.senha).subscribe(
         //     ok => {

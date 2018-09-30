@@ -19,4 +19,12 @@ export class UserService {
         }
         return false;
     }
+
+    /** Verifica s se usuario existe */
+    verifyUser(user: User){
+        var achou = this.users.indexOf(user);
+        if ( achou ) {
+            return this,user[achou];
+        }
+    }
 }

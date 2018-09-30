@@ -28,4 +28,18 @@ export class Project {
     skills: Array<string>;
     skill: string;
     level: number;
+
+    constructor(
+        name?: string,
+        description?: string,
+        skills?: Array<string>,
+        skill?: string,
+        level?: number)
+    {
+        this.name = name;
+        this.description =     description;
+        this.skills =     skills;
+        this.skill =     skill;
+        this.level =     level;
+    }
 }

@@ -32,11 +32,11 @@
 
                             <div class="py-3">
                                 <!-- botão Incluir Projeto (à diretita)-->
-                                <button class="btn btn-success float-right" *ngIf="!showForm" (click)="showForm= !showForm">Novo
+                                <button class="btn btn-success float-right" *ngIf="!showFormEmp" (click)="showFormEmp = !showFormEmp">Novo
                                     Projeto</button>
 
                                 <!-- adicionando mais um Projeto -->
-                                <div class="bg-light card border-dark mb-4" *ngIf="showForm">
+                                <div class="bg-light card border-dark mb-4" *ngIf="showFormEmp">
                                     <h4 class="p-4">Incluir Novo Projeto</h4>
                                     <!-- formulário -->
                                     <div class="row p-3">
@@ -69,11 +69,11 @@
                                             <button type="submit" class="btn btn-primary float-right mr-3 mt-3" (click)="addMyProject()">Salvar
                                                 Projeto</button>
                                             <!-- botão de cancelar inclusão de projeto -->
-                                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="showForm= !showForm">Cancelar</button>
+                                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="showFormEmp= !showFormEmp">Cancelar</button>
                                         </div>
 
                                     </div>
-                                </div>
+                                </div><!-- fim div adicionando mais um Projeto -->
 
                                 <!-- Lista de projetos existentes -->
                                 <div class="p-4">
@@ -81,29 +81,25 @@
                                         <h3>Lista de Projetos Ativos</h3>
                                     </div>
 
-                                    <div *ngFor="let item of projects" class="accordion" id="accordionExample">
-                                        <div class="card">
-                                            <div data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne" class="list-group-item list-group-item-action flex-column align-items-start active">
-                                                <div class="d-flex w-100 justify-content-between">
-                                                    <h5 class="mb-1">List group item heading</h5>
-                                                    <small>3 days ago</small>
-                                                </div>
-                                                <p class="mb-1">Donec id elit non mi porta gravida at eget
-                                                    metus.
-                                                    Maecenas sed diam eget risus varius blandit.
-                                                </p>
-                                                <small>Donec id elit non mi porta.</small>
+                                    <!-- <div *ngFor="let item of projects; index as i">
+                                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h4 class="mb-1">{{item.name}}</h4>
+                                                <small>{{item.skills}}</small>
                                             </div>
+                                            <p class="mb-1">{{item.skill}}</p>
+                                            <small>{{item.description}}</small>
                                         </div>
-                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-
+                                    </div> -->
+                                    <a href="" *ngFor="let item of projects; index as i" [ngClass]="{active: i==0}"
+                                    class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">{{item.name}}</h5>
+                                                <small>{{item.skills}}</small>
                                             </div>
-                                        </div>
-                                    </div>
-
+                                            <p class="mb-1">{{item.skill}}</p>
+                                            <small>{{item.description}}</small>
+                                        </a>
                                 </div>
                             </div>
                         </div>
@@ -115,12 +111,12 @@
         <!-- CONTEUDO TAB PROFISSIONAL -->
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <!-- botão Incluir Projeto (à diretita)-->
-            <button class="btn btn-success float-right" *ngIf="!incluindo" (click)="incluindo= !incluindo">Nova
+            <button class="btn btn-success float-right" *ngIf="!showFormPro" (click)="showFormPro= !showFormPro">Nova
                 Especialização</button>
 
             <form class="mt-3">
 
-                <div class="bg-light card border-dark mb-4" *ngIf="showForm">
+                <div class="bg-light card border-dark mb-4" *ngIf="showFormPro">
 
                     <h4 class="p-4">Incluir especialização</h4>
 
@@ -156,52 +152,31 @@
                             <button type="submit" class="btn btn-primary float-right mr-3 mt-3">Adicionar
                             </button>
                             <!-- botão de cancelar inclusão de projeto -->
-                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="showForm= !showForm">Cancelar</button>
+                            <button class="btn btn-danger float-right mr-3 mt-3" (click)="showFormPro= !showFormPro">Cancelar</button>
                         </div>
 
-                        <div class="p-4">
-                            <div class="p3">
-                                <h3>Projetos que vc trabalha</h3>
-                            </div>
-                            <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Especializaçao</h5>
-                                        <small>Descriçao</small>
-                                    </div>
-                                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                        sed
-                                        diam
-                                        eget risus varius blandit.</p>
-                                    <small>Donec id elit non mi porta.</small>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">List group item heading</h5>
-                                        <small class="text-muted">3 days ago</small>
-                                    </div>
-                                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                        sed
-                                        diam
-                                        eget risus varius blandit.</p>
-                                    <small class="text-muted">Donec id elit non mi porta.</small>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">List group item heading</h5>
-                                        <small class="text-muted">3 days ago</small>
-                                    </div>
-                                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                        sed
-                                        diam
-                                        eget risus varius blandit.</p>
-                                    <small class="text-muted">Donec id elit non mi porta.</small>
-                                </a>
-                            </div>
-                        </div>
                     </div>
+
+                    
                 </div>
             </form>
+            <!-- Lista de Projetos associados ao profissional -->
+            <div class="p-4">
+                <div class="p3">
+                    <h3>Projetos que voçê trabalha</h3>
+                </div>
+                <div class="list-group">
+                    <div *ngFor="let item of projects">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{item.name}}</h5>
+                                <small>{{item.description}}</small>
+                            </div>
+                            <p class="mb-1">{{item.skill}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
