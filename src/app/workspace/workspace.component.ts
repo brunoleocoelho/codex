@@ -27,7 +27,7 @@ export class WorkspaceComponent implements OnInit {
             this.rout.navigate(['login']);
         }
         console.log(loginStrg);
-        this.getProjects();
+        //this.getProjects();
     }
 
     /** cria um novo projeto para o empreendedor */

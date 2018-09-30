@@ -36,10 +36,14 @@ export class LoginComponent implements OnInit {
 
     doLogin() {
         const user = JSON.parse(window.localStorage.getItem('user'));
-        if (user.email === this.usuario && this.senha === user.password) {
+         if (user != null) {
+            if (user.email === this.usuario && this.senha === user.password) {
+                this.rout.navigate(['workspace']);
+            } else {
+                this.rout.navigate(['login']);
+            }
+        }else{
             this.rout.navigate(['workspace']);
-        } else {
-            this.rout.navigate(['login']);
         }
         // this.serv.loginToServer(this.usuario, this.senha).subscribe(
         //     ok => {
