@@ -75,7 +75,7 @@ html {
 .video-container .filter {
     z-index: 100;
     position: absolute;
-    background: rgba(0, 0, 0, .9);
+    background: rgba(0, 0, 0, .3);
     width: 100%;
   }
 .hidden{
@@ -91,7 +91,7 @@ html {
     width:100%;
   }
   .texto{
-    color: rgba(0,0,0,.8);    
+    color: rgba(0,0,0,.4);    
     font-size: 3.5em;  
   }
 

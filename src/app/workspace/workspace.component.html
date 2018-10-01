@@ -6,22 +6,20 @@
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#empreendedor" role="tab" aria-controls="empreendedor"
                 aria-selected="true">
-                <h4>Empreendedor</h4>
+                <h5>Empreendedor</h5>
             </a>
         </li>
         <!-- TAB PROFISSIONAL -->
         <li class="nav-item">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
                 aria-selected="false">
-                <h4>Profissional</h4>
+                <h5>Colaborador</h5>
             </a>
         </li>
     </ul>
 
-
     <!-- as TABS abrem conteudos diferentes -->
     <div class="tab-content" id="myTabContent">
-
 
         <!-- CONTEUDO TAB EMPREENDEDOR -->
         <div class="tab-pane fade show active" id="empreendedor" role="tabpanel" aria-labelledby="home-tab">
@@ -31,20 +29,19 @@
                         <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 
                             <div class="py-3">
-                                <!-- botão Incluir Projeto (à diretita)-->
-                                <button class="btn btn-success float-right" *ngIf="!showFormEmp" (click)="showFormEmp = !showFormEmp">Novo
-                                    Projeto</button>
 
                                 <!-- adicionando mais um Projeto -->
                                 <div class="bg-light card border-dark mb-4" *ngIf="showFormEmp">
-                                    <h4 class="p-4">Incluir Novo Projeto</h4>
+
+                                    <h3 class="p-4">Incluir Novo Projeto</h3>
                                     <!-- formulário -->
                                     <div class="row p-3">
 
                                         <!-- Titulo do Novo Projeto -->
                                         <div class="form-group col-md-6">
                                             <h6 class="text-primary">Titulo do Projeto:</h6>
-                                            <input [(ngModel)]="project.name" type="text" class="form-control" placeholder="Email" name="usuario" required="required"> 
+                                            <input [(ngModel)]="project.name" type="text" class="form-control" name="usuario"
+                                                required="required">
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -78,45 +75,50 @@
                                 <!-- Lista de projetos existentes -->
                                 <div class="p-4">
                                     <div class="p3">
+                                        <!-- botão Incluir Projeto (à diretita)-->
+                                        <button class="btn btn-success float-right" *ngIf="!showFormEmp" (click)="showFormEmp = !showFormEmp">Novo
+                                            Projeto</button>
                                         <h3>Seus Projetos Ativos</h3>
                                     </div>
 
-                                    <!-- <div *ngFor="let item of projects; index as i">
-                                        <div class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h4 class="mb-1">{{item.name}}</h4>
-                                                <small>{{item.skills}}</small>
-                                            </div>
-                                            <p class="mb-1">{{item.skill}}</p>
-                                            <small>{{item.description}}</small>
-                                        </div>
-                                    </div> -->
-<<<<<<< HEAD
-                                    <a href="" *ngFor="let item of projects; index as i" [ngClass]="{active: i==0}"
-                                    class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">{{item.name}}</h5>
-                                                <small>{{item.skills}}</small>
-                                            </div>
-                                            <p class="mb-1">{{item.skill}}</p>
-                                            <small>{{item.description}}</small>
-                                            <button class="btn btn-primary rounded" href="#">Ver pessoas disponiveis para este projeto </button>
-                                            <button class="btn btn-waring rounded">
-                                                Informaçoes do projetoSS
-                                            </button>
-                                        </a>
-=======
-                                    <a href="" *ngFor="let item of usrStrg.projects; index as i" [ngClass]="{active: i==0}"
-                                        class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div *ngFor="let item of usrStrg.projects; index as i" class="list-group-item list-group-item-action active flex-column align-items-start">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">{{item.name}}</h5>
-                                            <small>{{item.skills}}</small>
+                                            <div class="col-md-8 mb-2">
+                                                <h5 class="mb-1 weight">{{item.name}}</h5>
+                                                <!-- <small>{{item.skills}}</small> -->
+                                            </div>
+                                            <div class="col-md-4 text-right">
+                                                <!-- botão buscar para o Projeto (à diretita)-->
+                                                <div>
+                                                    <button class="btn btn-primary py-1 px-3" alt="buscar Colaboradores">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                         <p class="mb-1">{{item.skill}}</p>
                                         <small>{{item.description}}</small>
-                                    </a>
->>>>>>> 57442d0b3530674ae8f4fe4225a2b03a86789c39
+
+                                        <!-- integrantes de projeto -->
+                                        <div>
+                                            <!-- *ngFor="let colab of item.joined; index as ind"  -->
+                                            <!-- <span class="badge badge-primary p-2 m-2">{{colab.name}}</span> -->
+
+
+                                            <!-- <div class="col-md-12 bg-primary text-center p-1 mb-5 text-white h5 rounded">Resultados</div> -->
+                                            <ul class="list-group" *ngFor="let pess of aConvidar">
+                                                <li *ngIf="!pess.convidado && pess.proj == item.name" class="list-group-item text-dark ">
+                                                    <div>
+                                                        <p>{{ pess.nome }} ( {{ pess.skills}} )</p>
+                                                        <button class="btn btn-primary pull-right" (click)="invite(pess)">Convidar</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -128,18 +130,19 @@
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
             <!-- Lista de competencias e habilidade ao profissional -->
-            <div class="p-4">
-                <div class="p3">
+            <div class="p-4 bg-light">
+                <div class="p3 ">
+
+                    <!-- botão Incluir Projeto (à diretita)-->kught
+                    <button class="btn btn-success float-right" *ngIf="!showFormPro" (click)="showFormPro= !showFormPro">Nova
+                        Competência</button>
+
                     <h4>Suas Competências</h4>
                 </div>
                 <h3 class="m-2">
                     <span *ngFor="let item of usrStrg.skills" class="badge badge-primary p-2 m-2">{{item.name}}</span>
                 </h3>
             </div>
-
-            <!-- botão Incluir Projeto (à diretita)-->
-            <button class="btn btn-success float-right" *ngIf="!showFormPro" (click)="showFormPro= !showFormPro">Nova
-                Capacidade</button>
 
             <div class="bg-light card border-dark mb-4" *ngIf="showFormPro">
                 <h4 class="p-4">Incluir Capacidade</h4>
@@ -179,14 +182,31 @@
 
             </div>
 
-            <!-- Lista de Projetos associados ao profissional -->
+            <!-- Lista de Projetos associados ao colaborador -->
             <div class="p-4">
-                <div class="p3">
-                    <h3>Projetos que você participa</h3>
+                <div class="p3 ">
+                    <!-- botão bscar por Projetos (à diretita)-->
+                    <button class="btn btn-success float-right">Buscar mais...</button>
+                    <h4>Projetos que você participa</h4>
                 </div>
                 <div class="list-group">
-                    <div *ngFor="let item of projects">
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                    <div *ngFor="let item of projParticipo">
+                        <a class="list-group-item list-group-item-action flex-column align-items-start bg-light mb-1">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{item.name}}</h5>
+                                <small>{{item.description}}</small>
+                            </div>
+                            <!-- <p class="mb-1">{{item.skill}}</p> -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de convites Projetos para se juntar -->
+            <!-- 
+                <div class="list-group">
+                    <div *ngFor="let item of projConvidado">
+                        <a class="list-group-item list-group-item-action flex-column align-items-start active">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{item.name}}</h5>
                                 <small>{{item.description}}</small>
@@ -195,8 +215,31 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <!-- Projeto convidado -->
+            <div class="p-4">
+                <div class="p3 ">
+                    <h4>Projetos Convidados</h4>
+                </div>
+                <div class="col-md-6 h-10 mb-5" *ngFor="let item of projConvidado">
+                    <div class="card rounded" *ngIf="mostraconvite">
+                        <div class="card-boby">
+                            <div class="col-md-12 text-center p-4"><i class="align-middle fas fa-user-circle fa-4x fa-gem"></i></div>
+                            <div class="col-md-12 text-center">
+                                <h5 class="text-muted">Convite !</h5>
+                                <h4>{{item.name}}</h4>
+                                <p>{{item.description}}</p>
+                                <p>{{item.skill}}</p>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-darker text-center">
+                            <button class="btn btn-success" (click)="allowInvite(item, true)">CONFIRMAR</button>
+                            <button class="btn btn-danger" (click)="allowInvite(item, false)"> RECUSAR </button>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
         </div>
     </div>
-</div>
+    <!--  -->

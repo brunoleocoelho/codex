@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, Skills } from '../models/user.model';
+import { User, Skills, Project } from '../models/user.model';
 
 @Injectable()
 export class UserService {
@@ -42,13 +42,29 @@ export class UserService {
         }
     }
 
+    /** Atualiza a bases de dados de usuários*/
+    private updateUserBase(user){
+        console.log("USRSERVICE USR", user);
+        window.localStorage.setItem('user', JSON.stringify(user));
+        window.localStorage.setItem('usersList', JSON.stringify(this.users));
+        this.users =  JSON.parse(window.localStorage.getItem('usersList'));
+    }
+
     /** Adiciona capacidade/especialidade */
     addNewSkill(id, skill: Skills){
         this.users[id].skills.push(skill);
-        let usr = this.users[id];
-        console.log("USRSERVICE USR", usr);
-        window.localStorage.setItem('user', JSON.stringify(usr));
-        window.localStorage.setItem('usersList', JSON.stringify(this.users));
-        this.users =  JSON.parse(window.localStorage.getItem('usersList'));
+        this.updateUserBase(this.users[id]);
+    }
+    
+    /** adiciona projeto ao empreendedor */
+    addNewProject(id, project: Project){
+        this.users[id].projects.push(project);
+        this.updateUserBase(this.users[id]);
+    }
+
+    /** adiciona projeto como colaborador do empreendedor */
+    joinToOtherProject(id, project: Project){
+        this.users[id].otherProjects.push(project);
+        this.updateUserBase(this.users[id]);
     }
 }

@@ -6,7 +6,8 @@ export class User {
     skills = new Array<Skills>();
     projects = new Array<Project>();
     otherProjects = new Array<Project>();
-
+    joined = new Array<User>();
+    
     constructor(email?: string,
                 password?: string,
                 id?: number) {
@@ -30,6 +31,7 @@ export class Project {
     skills: Array<string>;
     skill: string;
     level: number;
+    joined: Array<User>;
 
     constructor(
         name?: string,
